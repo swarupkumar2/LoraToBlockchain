@@ -138,7 +138,7 @@ func (cc *LoraBlock) read(stub shim.ChaincodeStubInterface, args []string) peer.
 
 //=================================================================================================
 //========================================================================================== CREATE
-// Creates Car Charging usage entry in blockchain
+// Creates LoRa device transmitted data entry in blockchain
 //
 func (cc *LoraBlock) create(stub shim.ChaincodeStubInterface, args []string) peer.Response {
 
@@ -148,14 +148,14 @@ func (cc *LoraBlock) create(stub shim.ChaincodeStubInterface, args []string) pee
 	}
 	id := strings.ToLower(args[0])
 	doc := &Doc{
-		ApplicationId: 	args[1],
-		DeviceId:  		args[2],
+		ApplicationId:  args[1],
+		DeviceId:       args[2],
 		HardwareSerial: args[3],
-		Port:    		args[4],
-		Counter: 		args[5],
-		PayloadRaw:  	args[6],
-		Payload:     	args[7],
-		Time:    		args[8],
+		Port:           args[4],
+		Counter:        args[5],
+		PayloadRaw:     args[6],
+		Payload:        args[7],
+		Time:           args[8],
 		DownloadUrl:    args[9]}
 
 	// Write the message
