@@ -1,0 +1,140 @@
+swagger: "2.0"
+
+info:
+  description: "The lora chaincode stores the data coming from LoRa devices through a LoRa gateway."
+  version: "1.0"
+  title: "LoRa"
+
+consumes:
+  - application/x-www-form-urlencoded
+produces:
+  - application/json
+
+
+parameters:
+
+  id:
+    name: id
+    in: path
+    description: ID of the message
+    required: true
+    type: string
+    maxLength: 64   
+
+  applicaionid:
+    name: applicationid
+    in: formData
+    description: Application ID
+    required: true
+    type: string
+    maxLength: 64
+   
+  deviceid:
+    name: deviceid
+    in: formData
+    description: Device ID
+    required: true
+    type: string
+    maxLength: 64
+
+  hardwareserial:
+    name: hardwareserial
+    in: formData
+    description: hardware serial number
+    required: true
+    type: string
+    maxLength: 64
+
+  port:
+    name: port
+    in: formData
+    description: Port number
+    required: true
+    type: string
+    maxLength: 64
+
+  counter:
+    name: counter
+    in: formData
+    description: counter
+    required: true
+    type: string
+    maxLength: 64
+   
+  payloadraw:
+    name: payloadraw
+    in: formData
+    description: Payload Raw
+    required: true
+    type: string
+    maxLength: 64
+
+  payload:
+    name: payload
+    in: formData
+    description: payload
+    required: true
+    type: string
+    maxLength: 64
+
+  time:
+    name: time
+    in: formData
+    description: time
+    required: true
+    type: string
+    maxLength: 64    
+
+  downloadurl:
+    name: downloadurl
+    in: formData
+    description: download url
+    required: true
+    type: string
+    maxLength: 255
+
+paths:
+
+  /{id}:
+
+
+    get:
+      operationId: read
+      summary: Read status
+      parameters:
+      - $ref: '#/parameters/id'
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              text:
+                type: string
+        400:
+          description: Parameter Mismatch
+        404:
+          description: Not Found
+
+
+    post:
+      operationId: create
+      summary: Creates LoRa entry
+      parameters:
+      - $ref: '#/parameters/id'
+      - $ref: '#/parameters/applicaionid'
+      - $ref: '#/parameters/deviceid'
+      - $ref: '#/parameters/hardwareserial'
+      - $ref: '#/parameters/port'
+      - $ref: '#/parameters/counter'
+      - $ref: '#/parameters/payloadraw'
+      - $ref: '#/parameters/payload'
+      - $ref: '#/parameters/time'
+      - $ref: '#/parameters/downloadurl'
+      responses:
+        201:
+          description: Created
+        400:
+          description: Parameter Mismatch
+        409:
+          description: Already Exists

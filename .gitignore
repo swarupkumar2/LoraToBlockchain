@@ -1,0 +1,16 @@
+RemoteSystemsTempFiles/
+.metadata/
+.recommenders/
+LoraToBlock/.settings/
+LoraToBlock/.mvn/
+LoraToBlock/target/
+LoraToBlock/manifest.yml
+LoraToBlock/log_og.txt
+LoraToBlock/.project
+LoraToBlock/.classpath
+lora_chaincode/lora_chaincode.zip
+*.properties
+LoraToBlock/mvnw.cmd
+LoraToBlock/mvnw
+LoraToBlock/src/main/resources/application.properties
+LoraToBlock/src/main/resources/application.properties
